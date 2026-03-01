@@ -1,0 +1,4 @@
+v 3
+d multispline - Nonlinear multilevel spline modeling
+d Subir Hait, Michigan State University
+p multispline

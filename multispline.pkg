@@ -1,0 +1,8 @@
+v 3
+d multispline: Nonlinear multilevel spline modeling
+d Author: Subir Hait, Michigan State University
+d Email: haitsubi@msu.edu
+d Date: 01mar2026
+d Version: 1.0.4
+f multispline.ado
+f multispline.sthlp

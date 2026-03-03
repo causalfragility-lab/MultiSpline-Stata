@@ -7,9 +7,10 @@ Nonlinear multilevel spline modeling for Stata.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![RePEC](https://img.shields.io/badge/RePEC-indexed-green)](https://ideas.repec.org/c/boc/bocode/s459620.html)
 
-Version: 1.0.4 (SSC release)  
-License: MIT  
-Indexed in RePEc
+**Version:** 1.0.4 (SSC release)  
+**License:** MIT  
+**Indexed in:** RePEC
+
 ---
 
 ## Motivation
@@ -53,7 +54,7 @@ multispline depvar indepvar [if] [in], cluster(varname) [options]
 |--------|-------------|
 | `cluster(varname)` | Grouping variable (required) |
 | `nknots(#)` | Number of spline knots (default: 4) |
-| `autoknots` | Auto select knots (4-7) using floor(sqrt(n)) |
+| `autoknots` | Auto select knots (4–7) using floor(sqrt(n)) |
 | `at(numlist)` | Predict over 50-point grid spanning range |
 | `plot` | Visualize nonlinear fit |
 
@@ -103,10 +104,10 @@ multispline wage age, cluster(industry) nknots(4) plot
 
 ## Limitations
 
-- The predictor variable must be continuous
+- Predictor variable must be continuous
 - Performance depends on sufficient between-cluster variability
-- Not appropriate for discrete predictors or cases with
-  negligible random-effects variance
+- Not appropriate for discrete predictors or negligible
+  random-effects variance
 
 ---
 
@@ -127,7 +128,7 @@ Subir Hait
 Michigan State University  
 haitsubi@msu.edu  
 RePEC: https://authors.repec.org/pro/pha1643  
-GitHub: https://github.com/causalfragility-lab  
+GitHub: https://github.com/causalfragility-lab
 
 ---
 
@@ -150,7 +151,7 @@ https://ideas.repec.org/c/boc/bocode/s459620.html
 ### BibTeX (from RePEC):
 ```bibtex
 @Misc{repec:boc:bocode:s459620,
-  howpublished = {Statistical Software Components, 
+  howpublished = {Statistical Software Components,
                   Boston College Department of Economics},
   author       = {Hait, Subir},
   title        = {MULTISPLINE: Stata module to perform nonlinear
@@ -162,6 +163,3 @@ https://ideas.repec.org/c/boc/bocode/s459620.html
   url          = {https://ideas.repec.org/c/boc/bocode/s459620.html}
 }
 ```
-
-
-

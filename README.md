@@ -7,8 +7,9 @@ Nonlinear multilevel spline modeling for Stata.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![RePEC](https://img.shields.io/badge/RePEC-indexed-green)](https://ideas.repec.org/c/boc/bocode/s459620.html)
 
-**Version:** 1.0.4 (SSC release) | **License:** MIT | **Indexed in:** RePEC
-
+Version: 1.0.4 (SSC release)  
+License: MIT  
+Indexed in RePEc
 ---
 
 ## Motivation

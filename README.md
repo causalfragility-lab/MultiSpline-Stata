@@ -109,26 +109,29 @@ GitHub: https://github.com/causalfragility-lab
 ## License
 
 MIT © Subir Hait
-
 ## Citation
 
 If you use `multispline` in your research, please cite:
 ```
-Hait, Subir. 2026. "MULTISPLINE: Stata Module for Nonlinear 
-Multilevel Spline Modeling." Statistical Software Components 
-(SSC), Boston College Department of Economics.
+Hait, Subir. 2026. "MULTISPLINE: Stata module to perform 
+nonlinear multilevel spline modeling." Statistical Software 
+Components S459620, Boston College Department of Economics.
 https://ideas.repec.org/c/boc/bocode/s459620.html
 ```
 
 ### BibTeX:
 ```bibtex
-@software{hait2026multispline,
-  author = {Hait, Subir},
-  title  = {MULTISPLINE: Stata Module for Nonlinear
-            Multilevel Spline Modeling},
-  year   = {2026},
-  url    = {https://ideas.repec.org/c/boc/bocode/s459620.html},
-  note   = {Statistical Software Components (SSC), 
-            Boston College Department of Economics}
+@article{hait2026multispline,
+  author  = {Hait, Subir},
+  title   = {MULTISPLINE: Stata module to perform nonlinear
+             multilevel spline modeling},
+  journal = {Statistical Software Components},
+  year    = {2026},
+  number  = {S459620},
+  institution = {Boston College Department of Economics},
+  url     = {https://ideas.repec.org/c/boc/bocode/s459620.html}
 }
 ```
+
+
+

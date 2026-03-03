@@ -2,17 +2,21 @@
 
 Nonlinear multilevel spline modeling for Stata.
 
-[![SSC](https://img.shields.io/badge/SSC-multispline-blue)](http://fmwww.bc.edu/repec/bocode/m/multispline.ado)
+[![SSC](https://img.shields.io/badge/SSC-available-blue)](http://fmwww.bc.edu/repec/bocode/m/multispline.ado)
 [![Version](https://img.shields.io/badge/version-1.0.4-blue.svg)](https://github.com/causalfragility-lab/MultiSpline-Stata)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![RePEC](https://img.shields.io/badge/RePEC-pha1643-green)](https://authors.repec.org/pro/pha1643)
+[![RePEC](https://img.shields.io/badge/RePEC-indexed-green)](https://ideas.repec.org/c/boc/bocode/s459620.html)
 
-## Overview
+## Motivation
 
-While Stata provides `mixed` for multilevel models and `mkspline`
-for spline construction, no existing Stata command provides a unified
-workflow for fitting, predicting, visualizing, and computing ICCs
-from nonlinear multilevel models. `multispline` fills this gap.
+Nonlinear relationships are common in applied research, especially 
+in education, health, and economics. While Stata provides `mixed` 
+for multilevel models and `mkspline` for spline construction, 
+combining these tools requires multiple steps and manual 
+postestimation. `multispline` addresses this gap by providing 
+a unified workflow that integrates spline construction, multilevel 
+estimation, ICC computation, prediction, and visualization into a 
+single command, improving workflow efficiency and reproducibility.
 
 ## Installation
 
@@ -78,6 +82,13 @@ multispline wage age, cluster(industry) nknots(4) plot
 - Continuous predictor variable
 - Sufficient between-cluster variability
 
+## Limitations
+
+- The predictor variable must be continuous
+- Performance depends on sufficient between-cluster variability
+- Not appropriate for discrete predictors or cases with 
+  negligible random-effects variance
+
 ## Related R Package
 
 The R version of MultiSpline is available on CRAN:
@@ -103,19 +114,21 @@ MIT © Subir Hait
 
 If you use `multispline` in your research, please cite:
 ```
-Hait, S. (2026). MULTISPLINE: Stata module to perform nonlinear 
-multilevel spline modeling. Statistical Software Components, 
-Boston College Department of Economics.
-https://EconPapers.repec.org/RePEc:boc:bocode:s459620
+Hait, Subir. 2026. "MULTISPLINE: Stata Module for Nonlinear 
+Multilevel Spline Modeling." Statistical Software Components 
+(SSC), Boston College Department of Economics.
+https://ideas.repec.org/c/boc/bocode/s459620.html
 ```
 
 ### BibTeX:
 ```bibtex
 @software{hait2026multispline,
   author = {Hait, Subir},
-  title  = {MULTISPLINE: Stata module for nonlinear
-            multilevel spline modeling},
+  title  = {MULTISPLINE: Stata Module for Nonlinear
+            Multilevel Spline Modeling},
   year   = {2026},
-  url    = {https://EconPapers.repec.org/RePEc:boc:bocode:s459620}
+  url    = {https://ideas.repec.org/c/boc/bocode/s459620.html},
+  note   = {Statistical Software Components (SSC), 
+            Boston College Department of Economics}
 }
 ```

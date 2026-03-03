@@ -61,25 +61,50 @@ and computing ICCs from nonlinear multilevel models.
 multilevel model. Required.
 
 {phang}
-{opt nknots(#)} number of knots for cubic spline basis.
-Default is 4. Must be >= 3.
+{opt nknots(#)} specifies the number of knots for the cubic spline
+basis. Default is 4. Must be >= 3.
 
 {phang}
-{opt autoknots} automatically selects optimal number of knots
-between 4 and 7 based on number of unique values of predictor.
+{opt autoknots} automatically selects the optimal number of knots
+between 4 and 7 based on the number of unique values of the predictor
+using floor(sqrt(n)).
 
 {phang}
 {opt at(numlist)} generates predictions over a 50-point grid
 spanning the range defined by the numlist values.
-Useful for smooth prediction curves.
+Useful for producing smooth prediction curves.
 
 {phang}
-{opt plot} displays plot of predicted nonlinear relationship.
+{opt plot} displays a plot of the predicted nonlinear relationship.
+
+{title:Remarks}
+
+{pstd}
+The {cmd:multispline} command implements a five-step workflow:{p_end}
+
+{phang2}
+1. Interior knots are placed at quantiles of the predictor distribution.{p_end}
+{phang2}
+2. A natural cubic spline basis is constructed via {cmd:mkspline}.{p_end}
+{phang2}
+3. A linear mixed-effects model is estimated via {cmd:mixed}.{p_end}
+{phang2}
+4. The intraclass correlation coefficient (ICC) is computed via {cmd:estat icc}.{p_end}
+{phang2}
+5. Predicted values are stored in {cmd:__ms_fit} and optionally plotted.{p_end}
+
+{pstd}
+The {cmd:multispline} approach requires a continuous predictor and
+sufficient between-cluster variability. When predictors are discrete
+or between-cluster variance is negligible, spline basis expansion may
+become unstable and simpler modeling approaches may be more appropriate.
+Users are encouraged to examine the ICC and likelihood-ratio test output
+to assess the appropriateness of the multilevel specification.
 
 {title:Examples}
 
 {pstd}
-{bf:Example 1: Education example}
+{bf:Example 1: Education — SES and math achievement}
 
 {phang2}{cmd:. multispline math_score ses, cluster(schid) nknots(4) plot}{p_end}
 
@@ -94,12 +119,12 @@ Useful for smooth prediction curves.
 {phang2}{cmd:. multispline math_score ses, cluster(schid) nknots(4) at(-3 -2 -1 0 1 2 3) plot}{p_end}
 
 {pstd}
-{bf:Example 4: Health science example}
+{bf:Example 4: Health science — dosage and response}
 
 {phang2}{cmd:. multispline bloodpressure dosage, cluster(hospital) nknots(4) plot}{p_end}
 
 {pstd}
-{bf:Example 5: Real Stata data}
+{bf:Example 5: Labor economics — age and wage (NLSW88)}
 
 {phang2}{cmd:. sysuse nlsw88, clear}{p_end}
 {phang2}{cmd:. multispline wage age, cluster(industry) nknots(4) plot}{p_end}
@@ -124,30 +149,60 @@ Useful for smooth prediction curves.
 {synoptline}
 {p2colreset}{...}
 
+{title:Citation}
+
+{pstd}
+If you use {cmd:multispline} in your research, please cite:
+
+{phang}
+Hait, S. 2026. MULTISPLINE: Stata module to perform nonlinear
+multilevel spline modeling. {it:Statistical Software Components},
+Boston College Department of Economics.
+{browse "https://EconPapers.repec.org/RePEc:boc:bocode:s459620"}
+
+{pstd}
+BibTeX entry:
+
+{phang}
+@software{hait2026multispline,{break}
+{space 2}author = {lcub}Hait, Subir{rcub},{break}
+{space 2}title  = {lcub}MULTISPLINE: Stata module for nonlinear{break}
+{space 10}multilevel spline modeling{rcub},{break}
+{space 2}year   = {lcub}2026{rcub},{break}
+{space 2}url    = {lcub}https://EconPapers.repec.org/{break}
+{space 10}RePEc:boc:bocode:s459620{rcub}{break}
+}
+
 {title:Author}
 
 {pstd}
 Subir Hait{break}
 Michigan State University{break}
 haitsubi@msu.edu{break}
-{browse "https://github.com/causalfragility-lab/MultiSpline-Stata"}
+{browse "https://github.com/causalfragility-lab/MultiSpline-Stata"}{break}
+{browse "https://authors.repec.org/pro/pha1643"}
 
 {title:References}
 
 {phang}
-Bates, D., Maechler, M., Bolker, B., and Walker, S. (2015).
+Bates, D., M. Maechler, B. Bolker, and S. Walker. 2015.
 Fitting linear mixed-effects models using lme4.
-{it:Journal of Statistical Software}, 67(1), 1-48.
+{it:Journal of Statistical Software} 67(1): 1-48.
 
 {phang}
-Hastie, T. and Tibshirani, R. (1990).
+Hastie, T., and R. Tibshirani. 1990.
 {it:Generalized Additive Models}.
-CRC Press.
+London: Chapman and Hall.
 
 {phang}
-Raudenbush, S. W. and Bryk, A. S. (2002).
-{it:Hierarchical Linear Models}.
-Sage Publications.
+Rabe-Hesketh, S., and A. Skrondal. 2012.
+{it:Multilevel and Longitudinal Modeling Using Stata}.
+3rd ed. College Station, TX: Stata Press.
+
+{phang}
+Raudenbush, S. W., and A. S. Bryk. 2002.
+{it:Hierarchical Linear Models: Applications and Data Analysis Methods}.
+2nd ed. Thousand Oaks, CA: Sage.
 
 {title:Also see}
 

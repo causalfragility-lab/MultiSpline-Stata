@@ -7,16 +7,22 @@ Nonlinear multilevel spline modeling for Stata.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![RePEC](https://img.shields.io/badge/RePEC-indexed-green)](https://ideas.repec.org/c/boc/bocode/s459620.html)
 
+**Version:** 1.0.4 (SSC release) | **License:** MIT | **Indexed in:** RePEC
+
+---
+
 ## Motivation
 
-Nonlinear relationships are common in applied research, especially 
-in education, health, and economics. While Stata provides `mixed` 
-for multilevel models and `mkspline` for spline construction, 
-combining these tools requires multiple steps and manual 
-postestimation. `multispline` addresses this gap by providing 
-a unified workflow that integrates spline construction, multilevel 
-estimation, ICC computation, prediction, and visualization into a 
+Nonlinear relationships are common in applied research, especially
+in education, health, and economics. While Stata provides `mixed`
+for multilevel models and `mkspline` for spline construction,
+combining these tools requires multiple steps and manual
+postestimation. `multispline` addresses this gap by providing
+a unified workflow that integrates spline construction, multilevel
+estimation, ICC computation, prediction, and visualization into a
 single command, improving workflow efficiency and reproducibility.
+
+---
 
 ## Installation
 
@@ -31,10 +37,14 @@ net install multispline, ///
     from("https://raw.githubusercontent.com/causalfragility-lab/MultiSpline-Stata/main/")
 ```
 
+---
+
 ## Syntax
 ```stata
 multispline depvar indepvar [if] [in], cluster(varname) [options]
 ```
+
+---
 
 ## Options
 
@@ -45,6 +55,8 @@ multispline depvar indepvar [if] [in], cluster(varname) [options]
 | `autoknots` | Auto select knots (4-7) using floor(sqrt(n)) |
 | `at(numlist)` | Predict over 50-point grid spanning range |
 | `plot` | Visualize nonlinear fit |
+
+---
 
 ## Examples
 ```stata
@@ -66,6 +78,8 @@ sysuse nlsw88, clear
 multispline wage age, cluster(industry) nknots(4) plot
 ```
 
+---
+
 ## Workflow
 
 `multispline` automates five steps in a single command:
@@ -76,18 +90,24 @@ multispline wage age, cluster(industry) nknots(4) plot
 4. ICC computation via `estat icc`
 5. Prediction and visualization via `predict` and `twoway`
 
+---
+
 ## Requirements
 
 - Stata version 14.1 or later
 - Continuous predictor variable
 - Sufficient between-cluster variability
 
+---
+
 ## Limitations
 
 - The predictor variable must be continuous
 - Performance depends on sufficient between-cluster variability
-- Not appropriate for discrete predictors or cases with 
+- Not appropriate for discrete predictors or cases with
   negligible random-effects variance
+
+---
 
 ## Related R Package
 
@@ -98,6 +118,8 @@ install.packages("MultiSpline")
 
 GitHub: https://github.com/causalfragility-lab/MultiSpline
 
+---
+
 ## Author
 
 Subir Hait  
@@ -106,30 +128,37 @@ haitsubi@msu.edu
 RePEC: https://authors.repec.org/pro/pha1643  
 GitHub: https://github.com/causalfragility-lab  
 
+---
+
 ## License
 
 MIT © Subir Hait
+
+---
+
 ## Citation
 
 If you use `multispline` in your research, please cite:
 ```
-Hait, Subir. 2026. "MULTISPLINE: Stata module to perform 
-nonlinear multilevel spline modeling." Statistical Software 
+Hait, Subir. 2026. "MULTISPLINE: Stata module to perform
+nonlinear multilevel spline modeling." Statistical Software
 Components S459620, Boston College Department of Economics.
 https://ideas.repec.org/c/boc/bocode/s459620.html
 ```
 
-### BibTeX:
+### BibTeX (from RePEC):
 ```bibtex
-@article{hait2026multispline,
-  author  = {Hait, Subir},
-  title   = {MULTISPLINE: Stata module to perform nonlinear
-             multilevel spline modeling},
-  journal = {Statistical Software Components},
-  year    = {2026},
-  number  = {S459620},
-  institution = {Boston College Department of Economics},
-  url     = {https://ideas.repec.org/c/boc/bocode/s459620.html}
+@Misc{repec:boc:bocode:s459620,
+  howpublished = {Statistical Software Components, 
+                  Boston College Department of Economics},
+  author       = {Hait, Subir},
+  title        = {MULTISPLINE: Stata module to perform nonlinear
+                  multilevel spline modeling},
+  year         = {2026},
+  month        = {Mar},
+  number       = {S459620},
+  keywords     = {splines; panel data; Stata},
+  url          = {https://ideas.repec.org/c/boc/bocode/s459620.html}
 }
 ```
 

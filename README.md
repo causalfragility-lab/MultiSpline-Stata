@@ -6,6 +6,8 @@ Nonlinear multilevel spline modeling for Stata.
 [![Version](https://img.shields.io/badge/version-1.0.4-blue.svg)](https://github.com/causalfragility-lab/MultiSpline-Stata)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![RePEC](https://img.shields.io/badge/RePEC-indexed-green)](https://ideas.repec.org/c/boc/bocode/s459620.html)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18853821.svg)](https://doi.org/10.5281/zenodo.18853821)
+
 
 **Version:** 1.0.4 (SSC release)  
 **License:** MIT  

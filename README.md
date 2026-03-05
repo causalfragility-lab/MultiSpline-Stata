@@ -113,6 +113,19 @@ multispline wage age, cluster(industry) nknots(4) plot
 
 ---
 
+## Simulation Study
+
+Replication code for the simulation comparison between
+linear, quadratic, and MultiSpline models is available in:
+
+simulation/multispline_simulation.do
+
+The script generates clustered nonlinear data, estimates
+linear, quadratic, and spline-based multilevel models,
+and produces the comparison table and visualization used
+in the manuscript.
+
+---
 ## Related R Package
 
 The R version of MultiSpline is available on CRAN:

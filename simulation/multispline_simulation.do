@@ -8,23 +8,25 @@
 *
 * This script reproduces the simulation study
 * comparing linear, quadratic, and multispline models.
+*
+* Instructions: Set your working directory below
+* before running this script.
 *******************************************************
 *******************************************************
-
 version 14.1
 clear all
 set more off
+set scheme s1mono
 
-* ---- set working folder (edit as needed)
-cd "C:\Users\haitsubi\OneDrive - Michigan State University\Desktop"
+* ---- set working folder (edit path as needed)
+* cd "your/working/directory/here"
 
-* ---- start log (raw reproducible output)
+* ---- start log
 log using "multispline_simulation.log", replace text
 
 * ---- ensure packages installed
 cap which multispline
 if _rc ssc install multispline, replace
-
 cap which esttab
 if _rc ssc install estout, replace
 
@@ -33,7 +35,6 @@ if _rc ssc install estout, replace
 * ============================================
 set seed 42
 set obs 1000
-
 gen schid = ceil(_n/50)
 gen x     = rnormal(0,1)
 
@@ -44,6 +45,9 @@ gen y = 50 + 0.9*x - 0.25*x^2 + rnormal(0,3)
 bysort schid: gen uj = rnormal(0,3)
 bysort schid: replace uj = uj[1]
 replace y = y + uj
+
+* true quadratic curve for figure
+gen y_true = 50 + 0.9*x - 0.25*x^2
 
 * ============================================
 * 2) Linear mixed model
@@ -87,14 +91,15 @@ esttab linear quadratic spline4 spline_auto ///
 * ============================================
 sort x
 twoway ///
- (scatter y x, msize(vsmall) mcolor(gs12)) ///
- (line yhat_spline4 x, sort lwidth(medthick)) ///
- (line yhat_spline_auto x, sort lwidth(medthick)) ///
- , legend(order(2 "multispline (4 knots)" 3 "multispline (autoknots)")) ///
-   title("Nonlinear relationship recovery") ///
-   ytitle("Outcome y") xtitle("Predictor x")
+  (scatter y x, msize(vsmall) mcolor(gs12)) ///
+  (line y_true x, sort lcolor(black) lpattern(dash) lwidth(thin)) ///
+  (line yhat_spline4 x, sort lcolor(black) lpattern(solid) lwidth(medthick)) ///
+  (line yhat_spline_auto x, sort lcolor(black) lpattern(shortdash) lwidth(medthick)) ///
+  , legend(order(2 "True quadratic" 3 "multispline, nknots(4)" 4 "multispline, autoknots")) ///
+    title("Nonlinear relationship recovery") ///
+    ytitle("Outcome y") xtitle("Predictor x")
 
-graph export "multispline_simulation_plot.pdf", replace
+graph export "multispline_simulation_plot.eps", replace
 
 log close
 *******************************************************

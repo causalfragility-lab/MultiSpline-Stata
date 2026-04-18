@@ -1,0 +1,34 @@
+d 'MULTISPLINE': module for spline-based nonlinear modeling for multilevel and longitudinal data
+d
+d  multispline fits nonlinear regression models using natural cubic
+d  splines or B-splines, with optional multilevel random effects
+d  via mixed. It provides a complete workflow: automatic knot/df
+d  selection by AIC or BIC; cross-classified and nested multilevel
+d  structures; Nakagawa-Schielzeth marginal and conditional
+d  R-squared decomposition; first and second derivatives with
+d  confidence bands; turning-point detection; model comparison
+d  (linear vs polynomial vs spline); and inline publication plots
+d  (trajectory, slope, curvature, combo). All functionality is
+d  contained in a single .ado file with no external dependencies
+d  beyond base Stata commands (regress, mixed, mkspline).
+d
+d KW: splines
+d KW: nonlinear regression
+d KW: multilevel models
+d KW: natural cubic splines
+d KW: longitudinal data
+d KW: derivatives
+d KW: turning points
+d KW: model comparison
+d
+d Requires: Stata version 14
+d
+d Distribution-Date: 20260417
+d
+d Author: Subir Hait, Michigan State University
+d Support: email haitsubi@@msu.edu
+d
+f multispline.ado
+f multispline_plot.ado
+f multispline.sthlp
+f multispline_example.do

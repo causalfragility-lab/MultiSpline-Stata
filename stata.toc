@@ -1,0 +1,4 @@
+v 3
+d MultiSpline: Spline-based nonlinear modeling for multilevel and longitudinal data
+d Subir Hait, Michigan State University
+p multispline
